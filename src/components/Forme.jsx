@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 
 function Forme() {
   const [email, setEmail] = useState('');
@@ -8,6 +9,10 @@ function Forme() {
   const [passwordFocused, setPasswordFocused] = useState(false);
   const [hover, setHover] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredCode, setIsHoveredCode] = useState(false);
+
+
 
   const validateField = (field) => {
     const newErrors = { ...errors };
@@ -70,6 +75,7 @@ function Forme() {
                 fontSize: 16,
                 width: 290,
                 padding: "24px 16px 8px 16px  ",
+                border: "#63666a 1px solid",
               }}
             />
             <label style={{
@@ -112,6 +118,7 @@ function Forme() {
                 fontSize: 16,
                 width: 290,
                 padding: "24px 16px 8px 16px  ",
+                border: "#63666a 1px solid",
               }}
             />
             <label style={{
@@ -134,22 +141,52 @@ function Forme() {
 </svg> {errors.password}
             </div>
           )}
-
-          <button type="submit" style={{
-            background: "#e50914", color: "white", height: 40,width: 322,
-            borderRadius: 4, border: "none", marginBottom: 16
-          }}>
-            Sign In
-          </button>
+<Link to="/signup/creditoption" style={{ textDecoration: "none" }}>
+<button
+      type="submit"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        background: "#e50914",
+        color: "white",
+        height: 40,
+        width: 322,
+        borderRadius: 4,
+        border: "none",
+        marginBottom: 16,
+        outline: "none",
+        filter: isHovered ? "brightness(85%)" : "brightness(100%)",
+        transition: "filter 0.2s",
+      }}
+    >
+      Sign In
+    </button>
+    </Link>
         </form>
 <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-        <span style={{ color: "#737373" }}>OR</span><br />
-        <button style={{ background: "#9d9d9d", color: "white", height: 40,width:322, borderRadius: 4, border: "none" }}>
-          Use a Sign-In Code
-        </button>
+        <span style={{ color: "#737373",fontWeight: 500, }}>OR</span><br />
+        <button
+  onMouseEnter={() => setIsHoveredCode(true)}
+  onMouseLeave={() => setIsHoveredCode(false)}
+  style={{
+    backgroundColor: "rgba(157, 157, 157, 0.4)",
+    color: "white",
+    height: 40,
+    width: 322,
+    borderRadius: 4,
+    border: "none",
+    outline: "none",
+    filter: isHoveredCode ? "brightness(85%)" : "brightness(100%)",
+    transition: "filter 0.2s",
+  }}
+>
+  Use a Sign-In Code
+</button>
+
+
         <br/>
         <a
-  href="#"
+  href="https://www.netflix.com/tn-fr/loginHelp"
   style={{
     display: "inline-block",
     color: "white",
