@@ -71,3 +71,20 @@
   background-color: #2979ff;
   color: white;
 }
+.link-style {
+  text-decoration: none;
+}
+
+.link-style:hover {
+  text-decoration: underline;
+}
+.cardnumber{
+  width: 406px;
+}
+.date{
+  width: 181px;
+  margin-right:10px ;
+}
+.CVV{
+  width: 181px;
+}
